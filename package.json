@@ -1,7 +1,17 @@
 {
   "name": "yahtzee",
   "version": "1.0.0",
-  "workspaces": ["client", "server", "pubsub"],
+  "workspaces": [
+    "client",
+    "server",
+    "pubsub"
+  ],
   "author": "Ole I Hougaard",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "react-router-dom": "^6.28.0"
+  },
+  "devDependencies": {
+    "@types/react-router-dom": "^5.3.3"
+  }
 }
