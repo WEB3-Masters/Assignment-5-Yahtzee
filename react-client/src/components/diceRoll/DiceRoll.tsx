@@ -1,4 +1,3 @@
-// DiceRoll.tsx
 import React, { useState, useEffect, useMemo } from 'react';
 import * as api from '../../model/api';
 import { IndexedYahtzee } from '../../model/game';
@@ -8,9 +7,10 @@ interface DiceRollProps {
   game: IndexedYahtzee;
   player: string;
   enabled: boolean;
+  className?: string;
 }
 
-const DiceRoll: React.FC<DiceRollProps> = ({ game, player, enabled }) => {
+const DiceRoll: React.FC<DiceRollProps> = ({ game, player, enabled, className }) => {
   // State to track which dice are held
   const [held, setHeld] = useState([false, false, false, false, false]);
 
@@ -36,7 +36,7 @@ const DiceRoll: React.FC<DiceRollProps> = ({ game, player, enabled }) => {
   };
 
   return (
-    <div className="dice">
+    <div className={`dice ${className}`}> {/* <-- Apply className */}
       {!enabled && <div className="diceheader">{game.players[game.playerInTurn]} is playing</div>}
       <div className="die"></div>
       {game.roll.map((d, i) => (

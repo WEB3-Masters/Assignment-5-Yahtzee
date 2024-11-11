@@ -13,22 +13,22 @@
     text-align: center;
   }
   .die1 {
-    content: url('/assets/1.png');
+    content: url('../../assets/1.png');
   }
   .die2 {
-    content: url('/assets/2.png');
+    content: url('../../assets/2.png');
   }
   .die3 {
-    content: url('/assets/3.png');
+    content: url('../../assets/3.png');
   }
   .die4 {
-    content: url('/assets/4.png');
+    content: url('../../assets/4.png');
   }
   .die5 {
-    content: url('/assets/5.png');
+    content: url('../../assets/5.png');
   }
   .die6 {
-    content: url('/assets/6.png');
+    content: url('../../assets/6.png');
   }
   .reroll {
     grid-row: 2;

@@ -6,8 +6,7 @@ import DiceRoll from '../../components/diceRoll/DiceRoll';
 import ScoreCard from '../../components/scoreCard/ScoreCard';
 import { RootState } from '../../slices/store';
 import { IndexedYahtzee } from '../../model/game';
-import { is_finished, scores } from 'models/src/model/yahtzee.game';
-import { setPlayer } from '../../slices/playerSlice';
+import { is_finished, scores } from '../../model/yahtzee.game';
 import './GameComponent.css';
 
 

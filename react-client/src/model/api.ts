@@ -1,6 +1,6 @@
-import type { DieValue } from "models/src/model/dice";
+import type { DieValue } from "./dice";
 import type { IndexedYahtzee, IndexedYahtzeeSpecs } from "./game";
-import type { LowerSectionKey } from "models/src/model/yahtzee.score";
+import type { LowerSectionKey } from "./yahtzee.score";
 
 const headers = {Accept: 'application/json', 'Content-Type': 'application/json'}
 

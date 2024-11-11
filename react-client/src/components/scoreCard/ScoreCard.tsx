@@ -1,20 +1,20 @@
-// ScoreCard.tsx
 import React, { useMemo, useCallback } from 'react';
 import * as api from '../../model/api';
 import { IndexedYahtzee } from '../../model/game';
-import {lower_section_keys,lower_section_slots, sum_upper, total_upper, upper_section_slots, LowerSectionKey } from 'models/src/model/yahtzee.score';
-import { die_values, isDieValue, DieValue } from 'models/src/model/dice';
-import { scores } from 'models/src/model/yahtzee.game';
-import { score } from 'models/src/model/yahtzee.slots';
+import {lower_section_keys,lower_section_slots, sum_upper, total_upper, upper_section_slots, LowerSectionKey } from '../../model/yahtzee.score';
+import { die_values, isDieValue, DieValue } from '../../model/dice';
+import { scores } from '../../model/yahtzee.game';
+import { score } from '../../model/yahtzee.slots';
 import './ScoreCard.css';
 
 interface ScoreCardProps {
   game: IndexedYahtzee;
   player: string;
   enabled: boolean;
+  className?: string;
 }
 
-const ScoreCard: React.FC<ScoreCardProps> = ({ game, player, enabled }) => {
+const ScoreCard: React.FC<ScoreCardProps> = ({ game, player, enabled, className }) => {
   const players = useMemo(() => game.players, [game.players]);
   const upperSections = useMemo(() => game.upper_sections, [game.upper_sections]);
   const lowerSections = useMemo(() => game.lower_sections, [game.lower_sections]);
@@ -64,7 +64,7 @@ const ScoreCard: React.FC<ScoreCardProps> = ({ game, player, enabled }) => {
   );
 
   return (
-    <div className="score">
+    <div className={`score ${className}`}> {/* <-- Apply className */}
       <table className="scorecard">
         <tbody>
           <tr className="section_header">
