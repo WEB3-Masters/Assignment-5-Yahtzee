@@ -1,0 +1,125 @@
+.lobby-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.lobby-container h1 {
+  text-align: center;
+  color: #2c3e50;
+  font-size: 2.5em;
+  margin-bottom: 30px;
+}
+
+.lobby-container .create-game {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+  padding: 25px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.lobby-container .create-game h2 {
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+.lobby-container .create-game label {
+  display: block;
+  margin-bottom: 15px;
+}
+
+.lobby-container .create-game input[type="number"] {
+  margin: 0 10px;
+  padding: 8px;
+  width: 80px;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  font-size: 1em;
+}
+
+.lobby-container .create-game button {
+  background-color: #3498db;
+  padding: 10px 25px;
+  font-size: 1.1em;
+  transition: background-color 0.2s;
+}
+
+.lobby-container .create-game button:hover {
+  background-color: #2980b9;
+}
+
+.lobby-container .pending-games,
+.lobby-container .ongoing-games {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+  padding: 25px;
+  border-radius: 8px;
+}
+
+.lobby-container h2 {
+  color: #2c3e50;
+  margin-bottom: 20px;
+  font-size: 1.5em;
+}
+
+.lobby-container ul {
+  list-style: none;
+  padding: 0;
+}
+
+.lobby-container li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  margin: 10px 0;
+  background-color: #f8f9fa;
+  border-radius: 6px;
+  transition: transform 0.2s;
+}
+
+.lobby-container li:hover {
+  transform: translateX(5px);
+}
+
+.lobby-container .pending-games button {
+  background-color: #27ae60;
+  padding: 8px 20px;
+  transition: background-color 0.2s;
+}
+
+.lobby-container .pending-games button:hover:not(:disabled) {
+  background-color: #219a52;
+}
+
+.lobby-container .pending-games button:disabled {
+  background-color: #bdc3c7;
+  cursor: not-allowed;
+}
+
+.lobby-container .ongoing-games button {
+  background-color: #e67e22;
+  padding: 8px 20px;
+  transition: background-color 0.2s;
+}
+
+.lobby-container .ongoing-games button:hover {
+  background-color: #d35400;
+}
+
+.lobby-container button {
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.lobby-container p {
+  text-align: center;
+  color: #7f8c8d;
+  font-style: italic;
+}

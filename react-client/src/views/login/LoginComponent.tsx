@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useLocation } from 'react-router-dom'; // Use useNavigate instead of useHistory
 import { setPlayer } from '../../slices/playerSlice'; // Adjust path to playerSlice
@@ -13,34 +13,31 @@ const LoginComponent = () => {
 
   const enabled = playerFromStore !== ''; // Check if player name is not empty
 
-  const login = () => {
-    dispatch(setPlayer(playerFromStore)); // Dispatch the player name to Redux
+  // Wrap login in useCallback to avoid recreation on every render
+  const login = useCallback(() => {
     const searchParams = new URLSearchParams(location.search);
     const game = searchParams.get('game');
     const pending = searchParams.get('pending');
 
-    if (game) {
-      navigate(`/game/${game}`); // Navigate to the game route
-    } else if (pending) {
-      navigate(`/pending/${pending}`); // Navigate to the pending game route
+    if (pending) {
+      navigate(`/pending/${pending}`);
+    } else if (game) {
+      navigate(`/game/${game}`);
     } else {
-      navigate('/'); // Default route
+      navigate('/');
     }
-  };
+  }, [location.search, navigate]);
 
   useEffect(() => {
     const loginKeyListener = (e: KeyboardEvent) => {
-      if (e.key === 'Enter') {
+      if (e.key === 'Enter' && enabled) {
         e.preventDefault();
-        if (enabled) login();
+        login();
       }
     };
 
     window.addEventListener('keydown', loginKeyListener);
-
-    return () => {
-      window.removeEventListener('keydown', loginKeyListener);
-    };
+    return () => window.removeEventListener('keydown', loginKeyListener);
   }, [enabled, login]);
 
   return (

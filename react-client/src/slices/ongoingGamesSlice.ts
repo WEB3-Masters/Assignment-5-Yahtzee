@@ -22,6 +22,9 @@ const ongoingGamesSlice = createSlice({
         state.gameList.push(game); // Insert if game does not exist
       }
     },
+    updateAllGames(state, action: PayloadAction<IndexedYahtzee[]>) {
+      state.gameList = action.payload;
+    },
     updateGame(state, action: PayloadAction<IndexedYahtzee>) {
       const game = action.payload;
       const index = state.gameList.findIndex(g => g.id === game.id);
@@ -32,5 +35,5 @@ const ongoingGamesSlice = createSlice({
   },
 });
 
-export const { upsertGame, updateGame } = ongoingGamesSlice.actions;
+export const { upsertGame, updateGame, updateAllGames } = ongoingGamesSlice.actions;
 export default ongoingGamesSlice.reducer;

@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { IndexedYahtzeeSpecs } from '../model/game'
+import { useEffect } from 'react';
 
 interface PendingGamesState {
   gameList: IndexedYahtzeeSpecs[];
@@ -22,6 +23,9 @@ const pendingGamesSlice = createSlice({
         state.gameList.push(game); // Insert if game does not exist
       }
     },
+    updateAllGames(state, action: PayloadAction<IndexedYahtzeeSpecs[]>) {
+      state.gameList = action.payload;
+    },
     updateGame(state, action: PayloadAction<IndexedYahtzeeSpecs>) {
       const game = action.payload;
       const index = state.gameList.findIndex(g => g.id === game.id);
@@ -36,5 +40,7 @@ const pendingGamesSlice = createSlice({
   },
 });
 
-export const { upsertGame, updateGame, removeGame } = pendingGamesSlice.actions;
+console.log("pendingGamesSlice", pendingGamesSlice);
+
+export const { upsertGame, updateGame, removeGame, updateAllGames } = pendingGamesSlice.actions;
 export default pendingGamesSlice.reducer;
